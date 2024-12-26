@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kooperative Politik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f2;
+            color: #333;
+            font-family: 'Source Sans 3', sans-serif;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .summary {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .content {
+            margin: 60px auto;
+        }
+
+        h2 {
+            color: #1a1a1a;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        p {
+            text-align: justify;
+            hyphens: auto;
+            margin-bottom: 1.5em;
+        }
+
+        .contact-section {
+            margin: 80px 0;
+            padding: 40px 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .contact-section p {
+            text-align: center;
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .linkedin-icon {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .linkedin-icon img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .principles {
+            margin: 40px 0;
+            padding-left: 0;
+        }
+
+        .principles li {
+            list-style: none;
+            margin-bottom: 1em;
+            text-align: justify;
+            padding-left: 1.5em;
+            position: relative;
+        }
+
+        .principles li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+        .details-section {
+            margin: 60px 0;
+        }
+
+        .details-section h3 {
+            cursor: pointer;
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+        }
+
+        .details-section h3::after {
+            content: "\25BA";
+            font-size: 0.8em;
+            margin-left: 10px;
+            transition: transform 0.2s;
+        }
+
+        .details-section h3.expanded::after {
+            content: "\25BC";
+            transform: rotate(0);
+        }
+
+        .details-section .content {
+            display: none;
+            margin: 10px 0 20px;
+        }
+
+        @media (max-width: 720px) {
+            .container {
+                padding: 40px 30px;
+            }
+
+            p,
+            .principles li {
+                text-align: left;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.details-section h3').forEach(header => {
+                const content = header.nextElementSibling;
+                if (content.style.display === "") {
+                    content.style.display = 'none';
+                }
+                header.addEventListener('click', () => {
+                    const isExpanded = content.style.display === 'block';
+                    content.style.display = isExpanded ? 'none' : 'block';
+                    header.classList.toggle('expanded', !isExpanded);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="container">
+            <h1>Kooperative Politik</h1>
+            <div class="summary">
+                Ein Konzept für ein positives und ermutigendes politisches Klima, bei dem der Fokus auf der
+                Umsetzung von Politik liegt – unabhängig davon, wer sie durchführt.
+            </div>
+        </div>
+    </div>
+
+    <div class="container content">
+        <h2>Was ist Kooperative Politik?</h2>
+        <p>
+            Kooperative Politik bedeutet, sich der Durchsetzung der individuell präferierten Politik zu verschreiben,
+            dabei auf taktische Manöver zu verzichten und Fortschritte hin zu dieser präferierten Politik
+            öffentlichkeitswirksam anzuerkennen.
+        </p>
+
+        <h2>Kernprinzipien</h2>
+        <ul class="principles">
+            <li>Es ist unwichtig, wer die Politik macht, solange diese mit meinen Präferenzen übereinstimmt</li>
+            <li>Der Fokus liegt auf der Umsetzung politischer Ziele, nicht auf Machterhalt</li>
+            <li>Fortschritte werden ohne Abwertung oder Relativierungen anerkannt</li>
+            <li>Konstruktive Debatten zur politischen Willensbildung sind ausdrücklich erwünscht</li>
+        </ul>
+
+        <h2>Vision</h2>
+        <p>
+            In einer Zeit zunehmender politischer Polarisierung setzt Kooperative Politik auf überparteiliche
+            Zusammenarbeit und ein positives politisches Klima. Dieser Ansatz spricht besonders jene an, die von
+            negativer Berichterstattung und Konfrontation zwischen politischen Lagern ermüdet sind. Das Ziel der
+            Kooperativen Politik ist es, den Interessenskonflikt zwischen Machterhalt und politischem Fortschritt
+            aufzulösen. Dies geschieht durch unverbindliche Absichtserklärungen zur Einhaltung der Kernprinzipien
+            seitens der politischen Akteure. Die Umsetzung dieser Absicht wird dann durch ein unabhängiges Gremium
+            kontrolliert. In regelmäßigem Turnus veröffentlicht dieses Gremium eine Überischt, welche politische
+            Akteure die Kernprinzipien im vergangenen Jahr eingehalten haben. Diese Übersicht kann anschließend
+            jeder Wähler bei seiner Wahlentscheidung berücksichtigen. Wenn Kooperative Politik der gewünschte
+            Modus Operandi von genügend Bürgern ist, wird das Einhalten der Kernprinzipien den politischen Akteuren
+            einen größeren Stimmenzuwachs erbringen, als es die Abwertung von und Anstreitung mit politischen
+            Konkurrenten erbringen würde.
+        </p>
+
+        <div class="details-section">
+            <h2>Details</h2>
+            <h3>Register der Absichtserklärung</h3>
+            <div class="content">
+                <p><i>In Arbeit</i></p>
+            </div>
+
+            <h3>Das Kontrollgremium</h3>
+            <div class="content">
+                <p><i>In Arbeit</i></p>
+            </div>
+
+            <h3>Effekt auf die Wahlentscheidung</h3>
+            <div class="content">
+                <p><i>In Arbeit</i></p>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <p>
+                Wenn Sie Vorschläge zur Weiterentwicklung des Konzeptes der Kooperativen Politik haben, nehmen
+                Sie gerne per LinkedIn Kontakt zu mir auf.
+            </p>
+            <a href="https://www.linkedin.com/in/thomasbahne" class="linkedin-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            © 2024 Kooperative Politik | Ein Konzept von Thomas Bahne
+        </div>
+    </footer>
+</body>
+
+</html>
