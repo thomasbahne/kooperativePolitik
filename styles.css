@@ -202,6 +202,37 @@ footer {
     .principles li {
         text-align: left;
     }
+
+    #table-of-contents {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: auto;
+        transform: none;
+        background: white;
+        padding: 10px 20px;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+    }
+
+    #table-of-contents ul {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #table-of-contents li {
+        margin: 0;
+    }
+
+    #toc-indicator {
+        display: none;
+    }
 }
 
 .collapsible-header {
