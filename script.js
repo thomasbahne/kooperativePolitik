@@ -117,14 +117,49 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
+    // Auto-scroll ToC on mobile
+    let isUserScrolling = false;
+    let scrollTimeout;
+
+    const autoScrollToC = () => {
+        if (window.innerWidth > 720) return; // Only for mobile
+        
+        const links = document.querySelectorAll("#table-of-contents a");
+        const activeLink = Array.from(links).find(link => link.classList.contains("active"));
+        
+        if (activeLink && !isUserScrolling) {
+            const toc = document.getElementById("table-of-contents");
+            const tocRect = toc.getBoundingClientRect();
+            const linkRect = activeLink.getBoundingClientRect();
+            
+            // Calculate scroll position to center the active link
+            const scrollTo = linkRect.left - tocRect.left + linkRect.width/2 - tocRect.width/2;
+            toc.scrollTo({
+                left: scrollTo,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    // Detect user interaction with ToC
+    toc.addEventListener('scroll', () => {
+        isUserScrolling = true;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            isUserScrolling = false;
+        }, 1000); // Reset after 1 second of inactivity
+    });
+
     // Listen to scroll events
     window.addEventListener("scroll", () => {
         updateToC();
         updateIndicator();
+        autoScrollToC();
     });
 
     // Initial position
     updateIndicator();
+    autoScrollToC();
 });
 
 
