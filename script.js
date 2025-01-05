@@ -134,10 +134,24 @@ document.addEventListener("DOMContentLoaded", () => {
             
             // Calculate scroll position to center the active link
             const scrollTo = linkRect.left - tocRect.left + linkRect.width/2 - tocRect.width/2;
-            toc.scrollTo({
-                left: scrollTo,
-                behavior: 'smooth'
-            });
+            
+            // iOS-compatible smooth scrolling
+            const start = toc.scrollLeft;
+            const change = scrollTo - start;
+            const startTime = performance.now();
+            const duration = 300; // milliseconds
+            
+            const animateScroll = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                toc.scrollLeft = start + change * progress;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animateScroll);
+                }
+            };
+            
+            requestAnimationFrame(animateScroll);
         }
     };
 
